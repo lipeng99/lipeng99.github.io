@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>计算器 | Hexo</title>
+  <title>计算器 | 洛枳</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="这是一个计算器的小项目">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算器">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;02&#x2F;hello-world&#x2F;index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="洛枳">
 <meta property="og:description" content="这是一个计算器的小项目">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-11-02T04:28:13.618Z">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="洛枳" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -45,19 +45,19 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="https://s2.ax1x.com/2019/11/02/KOPnfK.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">洛枳</a></h1>
 		</hgroup>
 		
 
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/">主页</a></li>
+				<li><a href="/">首页</a></li>
 	        
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+				<li><a href="/archives">归档</a></li>
 	        
 			</ul>
 		</nav>
@@ -92,6 +92,43 @@
 	</header>		
 </div>
 
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+<!--这里div的样式是笔者自己修改过的，你可以直接使用APlayer官方的原配置：<div id="aplayer"></div>-->
+
+<div id="aplayer" style="position:absolute;left;0; bottom:0;"></div>
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/color-thief-don@2.0.2/src/color-thief.js"></script>
+<style>
+	.aplayer-body{
+		width: 300px !important;
+	}
+</style>
+<script>
+  const ap = new APlayer({
+    container: document.getElementById('aplayer'),
+  fixed: true,
+  autoplay: false,
+  lrcType: 0,
+    audio: [{"name": "云烟成雨", "cover": "http://p2.music.126.net/DSTg1dR7yKsyGq4IK3NL8A==/109951163046050093.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=513360721"}, {"name": "至此", "cover": "http://p2.music.126.net/WS5-o20Rw8NSrFLHdfHs5w==/109951163641446987.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=1321392596"}, {"name": "这是你想要的生活吗", "cover": "http://p2.music.126.net/XFdWXCIzKZPlWR_vJJYvPA==/109951163439964688.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=1297750680"}, {"name": "100 days", "cover": "http://p2.music.126.net/SpOw9nHtbBKnNhUYKevOaw==/7880199836658654.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=30814154"}, {"name": "简情歌 （吉他版）", "cover": "http://p2.music.126.net/Vnx009P_j054QlzYsN62NQ==/17827481532994062.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=413829644"}, {"name": "八月十五", "cover": "http://p1.music.126.net/evWGqp3T5lhL55Ijxdl8wA==/18190320370376447.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=430026599"}, {"name": "所以来吧", "cover": "http://p2.music.126.net/XSCmc9ZbWcpeizDya2g6JQ==/18598239185572641.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=451991164"}, {"name": "短叹", "cover": "http://p1.music.126.net/XSCmc9ZbWcpeizDya2g6JQ==/18598239185572641.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=443967407"}, {"name": "简情歌 (钢琴版)", "cover": "http://p2.music.126.net/XSCmc9ZbWcpeizDya2g6JQ==/18598239185572641.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=437311310"}, {"name": "往往", "cover": "http://p1.music.126.net/XSCmc9ZbWcpeizDya2g6JQ==/18598239185572641.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=430787597"}, {"name": "亲爱的你 Dear You V2", "cover": "http://p2.music.126.net/l66hnzq-fLXO13SWm6HUgw==/109951163690016635.jpg?param=130y130", "artist": "严正岚 (Vera Yen)", "url": "http://music.163.com/song/media/outer/url?id=1327987952"}, {"name": "春风十里 (Live)", "cover": "http://p1.music.126.net/RiZ4XcDcg1Wl4k5Urw10mA==/109951163421331988.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=1300595161"}, {"name": "躺在我怀中", "cover": "http://p1.music.126.net/nIddIUSc41PBRrMRSBaSPg==/109951163140429471.jpg?param=130y130", "artist": "吴文青树vs9000岁乐队", "url": "http://music.163.com/song/media/outer/url?id=537150725"}, {"name": "美好事物 (2017)", "cover": "http://p2.music.126.net/XSCmc9ZbWcpeizDya2g6JQ==/18598239185572641.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=454435312"}, {"name": "不知归期的故人", "cover": "http://p2.music.126.net/XSCmc9ZbWcpeizDya2g6JQ==/18598239185572641.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=455345723"}, {"name": "等我们老了，就定居在重庆", "cover": "http://p1.music.126.net/oKH5VQ-uXbV94wSUuWVJ9w==/109951163204748231.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=529319768"}, {"name": "独一", "cover": "http://p1.music.126.net/oKH5VQ-uXbV94wSUuWVJ9w==/109951163204748231.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=541480287"}, {"name": "远去的飞鸟", "cover": "http://p1.music.126.net/oKH5VQ-uXbV94wSUuWVJ9w==/109951163204748231.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=548648155"}, {"name": "柔软", "cover": "http://p1.music.126.net/oKH5VQ-uXbV94wSUuWVJ9w==/109951163204748231.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=546724668"}, {"name": "白", "cover": "http://p2.music.126.net/oKH5VQ-uXbV94wSUuWVJ9w==/109951163204748231.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=526470574"}, {"name": "爱你就像爱生命", "cover": "http://p2.music.126.net/LZ_JzlEJZ6UDS9PgYoC7BQ==/18289276416855279.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=427016671"}, {"name": "如常", "cover": "http://p2.music.126.net/oKH5VQ-uXbV94wSUuWVJ9w==/109951163204748231.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=544713530"}, {"name": "斑马斑马", "cover": "http://p2.music.126.net/SpOw9nHtbBKnNhUYKevOaw==/7880199836658654.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=30814948"}, {"name": "你是我最愚蠢的一次浪漫", "cover": "http://p2.music.126.net/oKH5VQ-uXbV94wSUuWVJ9w==/109951163204748231.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=502103677"}, {"name": "秋酿", "cover": "http://p2.music.126.net/XSCmc9ZbWcpeizDya2g6JQ==/18598239185572641.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=30635613"}, {"name": "下一站茶山刘", "cover": "http://p2.music.126.net/eyY36vwg6DWAJpBy9FZngA==/19176582300236529.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=486188245"}, {"name": "美好事物", "cover": "http://p1.music.126.net/RsmgVs3F99IfpGOjZ347HA==/18252992533065802.jpg?param=130y130", "artist": "房东的猫", "url": "http://music.163.com/song/media/outer/url?id=417596830"}]
+  });
+
+  //实现切换音频时，根据音频的封面图片自适应主题色
+  const colorThief = new ColorThief();
+  const setTheme = (index) => {
+    if (!ap.list.audios[index].theme) {
+      colorThief.getColorAsync(ap.list.audios[index].cover, function(color) {
+        ap.theme(`rgb(${color[0]}, ${color[1]}, ${color[2]})`, index);
+      });
+    }
+  };
+  setTheme(ap.list.index);
+  ap.on('listswitch', (data) => {
+    setTheme(data.index);
+  });
+</script>
+
     </div>
     <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       
@@ -103,10 +140,10 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="https://s2.ax1x.com/2019/11/02/KOPnfK.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">John Doe</h1>
+			  <h1 class="header-author js-header-author">洛枳</h1>
 			</hgroup>
 			
 			
@@ -135,9 +172,9 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">首页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 50%"><a href="/archives">归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -268,6 +305,20 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2019/11/02/qwsdasdasd/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          qwsdasdasd
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -305,7 +356,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 John Doe
+    		&copy; 2019 洛枳
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -386,6 +437,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">标签</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">测试</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
