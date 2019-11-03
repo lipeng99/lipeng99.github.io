@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: java | 洛枳</title>
+  <title>学习基于注解的aop面向切面编程 | 洛枳</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="余生，和让你笑的人在一起">
-<meta property="og:type" content="website">
-<meta property="og:title" content="洛枳">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;categories&#x2F;java&#x2F;index.html">
+  <meta name="description" content="基于注解实现aop面向切面编程的入门案例">
+<meta name="keywords" content="spring,aop,注解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习基于注解的aop面向切面编程">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;03&#x2F;%E5%AD%A6%E4%B9%A0%E5%9F%BA%E4%BA%8E%E6%B3%A8%E8%A7%A3%E7%9A%84aop%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B&#x2F;index.html">
 <meta property="og:site_name" content="洛枳">
-<meta property="og:description" content="余生，和让你笑的人在一起">
+<meta property="og:description" content="基于注解实现aop面向切面编程的入门案例">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-03T14:26:45.918Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="洛枳" type="application/atom+xml">
@@ -196,128 +198,207 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-学习基于注解的aop面向切面编程" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/03/%E8%AE%A1%E7%AE%97%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2019-11-03T07:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-03</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/03/%E8%AE%A1%E7%AE%97%E5%99%A8/">计算器</a>
+    <h1 class="article-title" itemprop="name">
+      学习基于注解的aop面向切面编程
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/11/03/%E5%AD%A6%E4%B9%A0%E5%9F%BA%E4%BA%8E%E6%B3%A8%E8%A7%A3%E7%9A%84aop%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2019-11-03T14:22:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+	
+		<h2 id="基于注解实现aop面向切面编程的入门案例"><a href="#基于注解实现aop面向切面编程的入门案例" class="headerlink" title="基于注解实现aop面向切面编程的入门案例"></a>基于注解实现aop面向切面编程的入门案例</h2><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">基于注解的aop实现模拟保存账户的案例</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-IAccountService-java"><a href="#1-IAccountService-java" class="headerlink" title="1.IAccountService.java"></a>1.IAccountService.java</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">package com.abc.service;</span><br><span class="line"></span><br><span class="line">public interface IAccountService &#123;</span><br><span class="line">    void saveAccount();</span><br><span class="line">    void updateAccount(int i);</span><br><span class="line">    int deleteAccount();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-AccountServiceImpl-java"><a href="#2-AccountServiceImpl-java" class="headerlink" title="2.AccountServiceImpl.java"></a>2.AccountServiceImpl.java</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package com.abc.service;</span><br><span class="line"></span><br><span class="line">import org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line">@Service(&quot;accountService&quot;)</span><br><span class="line">public class AccountServiceImpl implements IAccountService &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void saveAccount() &#123;</span><br><span class="line">        System.out.println(&quot;执行了保存&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void updateAccount(int i) &#123;</span><br><span class="line">        System.out.println(&quot;执行了修改&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public int deleteAccount() &#123;</span><br><span class="line">        System.out.println(&quot;执行了删除&quot;);</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-切面类Logger-java"><a href="#3-切面类Logger-java" class="headerlink" title="3.切面类Logger.java"></a>3.切面类Logger.java</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">package com.abc.utils;</span><br><span class="line"></span><br><span class="line">import org.aspectj.lang.ProceedingJoinPoint;</span><br><span class="line">import org.aspectj.lang.annotation.*;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line">//用于记录日志的工具类，它里面提供了公共的代码</span><br><span class="line">@Component(&quot;logger&quot;)</span><br><span class="line">@Aspect//表示当前类是一个切面类</span><br><span class="line">public class Logger &#123;</span><br><span class="line">	//切面表达式</span><br><span class="line">    @Pointcut(&quot;execution(void com.abc.service.AccountServiceImpl.saveAccount())&quot;)</span><br><span class="line">    private void pt1()&#123;&#125;</span><br><span class="line">	//用于打印日志，计划让其在切入点方法之前执行(切入点方法就是业务层方法)</span><br><span class="line">    //前置通知</span><br><span class="line">    @Before(&quot;pt1()&quot;)</span><br><span class="line">    public void beforePrintLog()&#123;</span><br><span class="line">        System.out.println(&quot;beforePrintLog记录日志&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    //后置通知</span><br><span class="line">    @AfterReturning(&quot;pt1()&quot;)</span><br><span class="line">    public void afterReturningPrintLog()&#123;</span><br><span class="line">        System.out.println(&quot;afterReturningPrintLog记录日志&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    //异常通知</span><br><span class="line">    @AfterThrowing(&quot;pt1()&quot;)</span><br><span class="line">    public void afterThrowingPrintLog()&#123;</span><br><span class="line">        System.out.println(&quot;afterThrowingPrintLog记录日志&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    //最终通知</span><br><span class="line">    @After(&quot;pt1()&quot;)</span><br><span class="line">    public void afterPrintLog()&#123;</span><br><span class="line">        System.out.println(&quot;afterPrintLog记录日志&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    //环绕通知(不能和其他四种通知同时开启，需要在哪使用就写在哪)</span><br><span class="line">    //@Around(&quot;pt1()&quot;)</span><br><span class="line">    public Object aroundPrintLog(ProceedingJoinPoint pjp)&#123;</span><br><span class="line">        Object reValue=null;</span><br><span class="line">        try&#123;</span><br><span class="line">            Object args=pjp.getArgs();//得到方法执行所需的参数</span><br><span class="line">            pjp.proceed();//明确调用切入点方法</span><br><span class="line">            return reValue;</span><br><span class="line">        &#125;catch (Throwable t)&#123;</span><br><span class="line">            throw new RuntimeException(t);</span><br><span class="line">        &#125;finally &#123;</span><br><span class="line">        	System.out.println(&quot;aroundPrintLog记录日志&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-配置applicationContext-xml"><a href="#4-配置applicationContext-xml" class="headerlink" title="4.配置applicationContext.xml"></a>4.配置applicationContext.xml</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">       xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;</span><br><span class="line">       xmlns:context=&quot;http://www.springframework.org/schema/context&quot; xsi:schemaLocation=&quot;</span><br><span class="line">        http://www.springframework.org/schema/beans</span><br><span class="line">        http://www.springframework.org/schema/beans/spring-beans.xsd</span><br><span class="line">        http://www.springframework.org/schema/aop</span><br><span class="line">        http://www.springframework.org/schema/aop/spring-aop.xsd</span><br><span class="line">        http://www.springframework.org/schema/context</span><br><span class="line">        http://www.springframework.org/schema/context/spring-context.xsd&quot;&gt;</span><br><span class="line">    &lt;!--开启注解类依赖注入--&gt;</span><br><span class="line">    &lt;context:component-scan base-package=&quot;com.abc&quot;&gt;&lt;/context:component-scan&gt;</span><br><span class="line">    &lt;!--开启注解类aop配置--&gt;</span><br><span class="line">    &lt;aop:aspectj-autoproxy&gt;&lt;/aop:aspectj-autoproxy&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-测试类MyTest-java"><a href="#5-测试类MyTest-java" class="headerlink" title="5.测试类MyTest.java"></a>5.测试类MyTest.java</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">package com.abc;</span><br><span class="line"></span><br><span class="line">import com.abc.service.IAccountService;</span><br><span class="line">import com.abc.utils.Logger;</span><br><span class="line">import org.junit.Test;</span><br><span class="line">import org.springframework.context.ApplicationContext;</span><br><span class="line">import org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Unit test for simple App.</span><br><span class="line"> */</span><br><span class="line">public class MyTest</span><br><span class="line">&#123;</span><br><span class="line">    /**</span><br><span class="line">     * Rigorous Test :-)</span><br><span class="line">     */</span><br><span class="line">    @Test</span><br><span class="line">    public void Test01()&#123;</span><br><span class="line">        ApplicationContext ac = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);</span><br><span class="line">        IAccountService account = (IAccountService) ac.getBean(&quot;accountService&quot;);</span><br><span class="line">        account.saveAccount();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+	
+
+
+        <div class="page-reward">
+          <a href="javascript:;" target="_blank" rel="noopener" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">java</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color2">spring</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">项目</a>
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color4">aop</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">注解</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
+        			<a href="/categories/ssm//" class="article-tag-list-link color4">ssm</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" target="_blank" rel="noopener" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" target="_blank" rel="noopener" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" target="_blank" rel="noopener" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;" target="_blank" rel="noopener"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/03/%E5%AD%A6%E4%B9%A0%E5%9F%BA%E4%BA%8E%E6%B3%A8%E8%A7%A3%E7%9A%84aop%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/03/%E7%AE%80%E5%8D%95%E7%94%B5%E6%A2%AF%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
-  	<time datetime="2019-11-03T06:31:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-03</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/11/03/%E5%AD%A6%E4%B9%A0%E5%9F%BA%E4%BA%8Exml%E7%9A%84aop%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          学习基于xml的aop面向切面编程
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/11/03/%E5%AD%A6%E4%B9%A0spring%E7%9A%84jdbcTemplate/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">学习spring的jdbcTemplate</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/03/%E7%AE%80%E5%8D%95%E7%94%B5%E6%A2%AF%E7%B3%BB%E7%BB%9F/">简单电梯系统</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag article-tag-list-link color3">项目</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -340,10 +421,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
