@@ -1,0 +1,137 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>❤洛枳❤爱你呦❤</title>
+<style type="text/css">
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #FF62FF;
+}
+.content {
+	width: 80%;
+	color: #FF8FC7;
+	height: 100%;
+	top: 0px;
+	left: 10%;
+	font-size: 18px;
+	line-height: 25px;
+	font-family: "微软雅黑";
+	margin-top: 0px;
+}
+body {
+	color: #FFF;
+	padding: 10px;
+	background: #FFF no-repeat fixed top center;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.des {
+	font-size: 15px;
+	color: #3C3C3C;
+	/*width: 100%;*/
+	text-shadow : 0px 0px 1px #fff;
+	z-index:1000;					
+	right:20px;
+	position:fixed !important;
+	bottom:0px;
+}
+.des a {
+	color: #3C3C3C;
+	text-shadow : 0px 0px 1px #fff;
+}
+</style>
+<script src="jquery-1.7.1.min.js" language="javascript" type="text/javascript"></script>
+<script src="tao.js" language="javascript" type="text/javascript"></script>
+<script>
+$(document).ready(function(e) {
+	
+	/*禁止右键和隐藏鼠标*/
+	$("body").bind("contextmenu", function() {
+      return false;
+    });
+	/*定义文字最底部显示到哪儿*/
+	
+	
+	
+	var guangs=["　","|","　","|"];
+	var guangBiao="/";
+	var guangSub=0;
+	var guang=setInterval("$.guang()",120);
+	
+	var subs=0;
+    var string="人，生于世上，有苦乐，有喜忧，有爱恨情仇，亦有悲欢离合。█大概，我们每个人在生命的某个阶段，总会有一些难熬的日子。█时光在走，人亦在走，有些孤独总伴随在生命的很多路程。█有一种孤独，是你遥不可及的诗和远方，你努力向着光奔跑，却不曾抵达终点。██年少时，轻狂如你我，鼓足一腔热血，发誓要闯出属于自己的一片碧海蓝天。█直到后来，那些关于穿越世界的旅行，从前憧憬的诗意和远方，█都随着年华的老去，一同被写进了时光的书籍。█其实也并非你在现实面前败下阵来，而是你的这份不服输的劲让你吃了不少的苦。██长大了就明白了，过了某个年龄，所追求的东西也就不一样了。█所以，当你努力奔跑的时候，你所看到的风景，所遇见的人，所经历的沧桑，█包括每一场突如其来的相逢与离别，其实都是一种孤独的成长。█所谓的诗和远方，是为了让你在不断的追逐中遇见和成为更好的自己。██人最怕的不是不为人知的孤独，而是你明明不甘平凡，却因终日不知所措，█难以承受生活带来的考验，而选择了向现实妥协，最后只得过着平庸的一生。█孤勇如你，你总要一个人尝遍所有的孤独。█有的路只能你一个人走，有的风霜亦只能你一个人饱受。█当你决定要去做一件事情的时候，你所付诸的行动必须比你原本的样子更值得你努力。█如果说孤独是一场惊涛骇浪，当你自己面对这千军万马之势，█愿只愿，你一个人也能活成一支队伍。█那个你，独立，坚韧，顽强，无所畏惧，勇往直前!██人，生而孤独。既然不能摆脱，那就与之共舞。█记得，你所经历的每一份孤独，都是一种自我认知和自我增值。█你总要一个人，走过一些难捱的孤独时日。█风雨过后，愿你的孤独扎根在你的生命深处，助你茁壮生长，变成更喜欢的自己。█那个你，有梦，有诗，有远方，亦有归途。";
+	$.intent=function(str){
+		str="　　"+str;
+		//var reg=new RegExp("/█{1,2}/","i"); //创建正则RegExp对象
+        str=str.replace(eval("/█/gi"),"█");
+
+		return str;
+	}
+	string=$.intent(string);
+	
+	var echo=setInterval("$.echo()",150);
+		
+	
+	
+	$.guang=function(){
+		  if(guangSub<guangs.length-1){
+			    guangSub++;
+			  }else{
+				  guangSub=0;
+				  }
+			guangBiao=guangs[guangSub];
+			$("#guang").html(guangBiao);
+			
+		}
+	
+	$.echo=function(){
+		if(subs<string.length){
+		$("#txt").html($("#txt").html()+$.repl(string.substr(subs,1)));
+		if($("#guang").offset().top > document.body.scrollHeight / 2){
+		  window.scrollTo(0,$("#guang").offset().top);
+		}
+               $(".des").css("bottom","0px");
+		subs++;
+		}
+	}
+	$.repl=function(str){
+		str=str.replace("\r\n","<br/>");
+		str=str.replace("\n","<br/>");
+		str=str.replace("█","<br/>");
+		return str;
+		}
+});
+
+</script>
+</head>
+<body>
+<center>
+<embed src="music.mp3" hidden="true" autostart="true" loop="true">
+<div style="float: right; width: 200px; height:200px; top: center; margin-right: 100px;margin-top: 30px;">
+<img src="https://s2.ax1x.com/2019/11/02/KOPnfK.jpg" fixed style="width: 200px; height:200px; border-radius: 200px;">
+</div>
+<div align="left" class="content"><span  id="txt"></span><span id="guang"></span>
+<span></span>
+</div>
+</center>
+
+
+
+
+<!--下面是浮动的桃心-->
+<div id="bubbles" style="visibility:hidden">
+<img src="img/1.png">
+<img src="img/2.png">
+<img src="img/1.png">
+</div>
+<!---->
+
+
+
+</body>
+</html>
