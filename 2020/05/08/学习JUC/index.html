@@ -26,9 +26,9 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;08&#x2F;YuwE80.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;08&#x2F;YuwgsS.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;08&#x2F;YuwWZQ.png">
-<meta property="og:image" content="c:%5CUsers%5CDELL%5CDesktop%5C%E4%B8%89%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%5C1588915980352.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;08&#x2F;YuoFII.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;08&#x2F;YuwTzV.png">
-<meta property="og:updated_time" content="2020-05-08T07:55:47.822Z">
+<meta property="og:updated_time" content="2020-05-08T09:00:05.181Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;08&#x2F;Yu0Eod.png">
   
@@ -658,7 +658,7 @@
 
 <h3 id="各种锁的理解"><a href="#各种锁的理解" class="headerlink" title="各种锁的理解"></a>各种锁的理解</h3><h4 id="公平锁和不公平锁"><a href="#公平锁和不公平锁" class="headerlink" title="公平锁和不公平锁"></a>公平锁和不公平锁</h4><p>公平锁：非常公平</p>
 <p>非公平锁：不公平，可以插队，按实际的速度看是否插队。</p>
-<p><img src="C:%5CUsers%5CDELL%5CDesktop%5C%E4%B8%89%5C%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%5C1588915980352.png" alt="1588915980352"></p>
+<p><img src="https://s1.ax1x.com/2020/05/08/YuoFII.png" alt="1588915980352"></p>
 <p>默认非公平锁</p>
 <p>ReentrantLock默认是一个非公平锁，如果我们加上true，就修改成立公平锁。</p>
 <h4 id="可重入锁"><a href="#可重入锁" class="headerlink" title="可重入锁"></a>可重入锁</h4><p>就是相当于，进去家门之后，有两个房子，a先进了，锁上门以后，b进不来，a要是再想去第二个门，速度肯定比b快。</p>
@@ -675,7 +675,7 @@
 </blockquote>
 <p>多个线程各自占有一些共享资源,并且互相等待其他线程占有的资源才能运行,而导致两个或者多个线程都在等待对方释放资源,都停止执行的情形.某一个同步块同时拥有“两个以上对象的锁”时,就可能会发生“死锁”的问题。</p>
 <p>通俗的讲：就是两个线程运行时，都需要对面的资源进行完成指令，但是都等待对方的资源释放，从而形成停止执行的情况。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.abc.lock;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestDeadLock</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String lockA = <span class="string">"lockA"</span>;</span><br><span class="line">        String lockB = <span class="string">"lockB"</span>;</span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> TestDemo(lockA,lockB),<span class="string">"A"</span>).start();</span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> TestDemo(lockB,lockA),<span class="string">"B"</span>).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestDemo</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String lockA;</span><br><span class="line">    <span class="keyword">private</span> String lockB;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestDemo</span><span class="params">(String lockA, String lockB)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.lockA = lockA;</span><br><span class="line">        <span class="keyword">this</span>.lockB = lockB;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (lockA)&#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">"lock:"</span>+lockA+<span class="string">"=》get"</span>+lockB);</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                TimeUnit.SECONDS.sleep(<span class="number">2</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrahttp:<span class="comment">//localhost:4000/admin/#/ce();</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">synchronized</span> (lockB) &#123;</span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">"lock:"</span> + lockB + <span class="string">"=》get"</span> + lockA);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.abc.lock;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestDeadLock</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String lockA = <span class="string">"lockA"</span>;</span><br><span class="line">        String lockB = <span class="string">"lockB"</span>;</span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> TestDemo(lockA,lockB),<span class="string">"A"</span>).start();</span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> TestDemo(lockB,lockA),<span class="string">"B"</span>).start();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestDemo</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String lockA;</span><br><span class="line">    <span class="keyword">private</span> String lockB;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TestDemo</span><span class="params">(String lockA, String lockB)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.lockA = lockA;</span><br><span class="line">        <span class="keyword">this</span>.lockB = lockB;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (lockA)&#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">"lock:"</span>+lockA+<span class="string">"=》get"</span>+lockB);</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                TimeUnit.SECONDS.sleep(<span class="number">2</span>);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">synchronized</span> (lockB) &#123;</span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">"lock:"</span> + lockB + <span class="string">"=》get"</span> + lockA);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>怎么去排查这个问题？</p>
 <p><img src="https://s1.ax1x.com/2020/05/08/YuwTzV.png" alt="1588916829925"></p>
@@ -926,11 +926,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">springmvc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">xml</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">dubbo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -939,10 +935,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">dubbo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -959,6 +951,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">spring-mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">springmvc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">xml</a>
               </li>
              
               <li class="article-tag-list-item">
