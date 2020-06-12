@@ -8,13 +8,13 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>学习Redis | 洛枳</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="RedisNosql概述为什么要用Nosql用户的个人信息，社交网络，地理位置。用户自己产生的数据，用户日志等等爆发式增长！  这时候我们就需要使用NoSQL数据库的，Nosql 可以很好的处理以上的情况！  什么是NoSQLNoSQL = Not Only SQL （不仅仅是SQL）  关系型数据库：表格 ，行 ，列  泛指非关系型数据库的，随着web2.0互联网的诞生！传统的关系型数据库很难对">
+  <meta name="description" content="Redis">
 <meta name="keywords" content="redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="学习Redis">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;06&#x2F;12&#x2F;%E5%AD%A6%E4%B9%A0Redis&#x2F;index.html">
 <meta property="og:site_name" content="洛枳">
-<meta property="og:description" content="RedisNosql概述为什么要用Nosql用户的个人信息，社交网络，地理位置。用户自己产生的数据，用户日志等等爆发式增长！  这时候我们就需要使用NoSQL数据库的，Nosql 可以很好的处理以上的情况！  什么是NoSQLNoSQL = Not Only SQL （不仅仅是SQL）  关系型数据库：表格 ，行 ，列  泛指非关系型数据库的，随着web2.0互联网的诞生！传统的关系型数据库很难对">
+<meta property="og:description" content="Redis">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;18&#x2F;Yf1MOs.png">
 <meta property="og:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;18&#x2F;Yf0vDK.png">
@@ -44,7 +44,7 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;19544689-cf8f704b52ce819b.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;1200&#x2F;format&#x2F;webp">
 <meta property="og:image" content="https:&#x2F;&#x2F;upload-images.jianshu.io&#x2F;upload_images&#x2F;19544689-3d132203514fa628.png?imageMogr2&#x2F;auto-orient&#x2F;strip%7CimageView2&#x2F;2&#x2F;w&#x2F;857&#x2F;format&#x2F;webp">
 <meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdn.net&#x2F;20180919143214879?watermark&#x2F;2&#x2F;text&#x2F;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2tvbmd0aWFvNQ==&#x2F;font&#x2F;5a6L5L2T&#x2F;fontsize&#x2F;400&#x2F;fill&#x2F;I0JBQkFCMA==&#x2F;dissolve&#x2F;70">
-<meta property="og:updated_time" content="2020-06-12T10:22:29.158Z">
+<meta property="og:updated_time" content="2020-06-12T10:28:58.015Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;s1.ax1x.com&#x2F;2020&#x2F;05&#x2F;18&#x2F;Yf1MOs.png">
   
@@ -253,7 +253,9 @@
       
 
 	
-		<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><h3 id="Nosql概述"><a href="#Nosql概述" class="headerlink" title="Nosql概述"></a>Nosql概述</h3><h5 id="为什么要用Nosql"><a href="#为什么要用Nosql" class="headerlink" title="为什么要用Nosql"></a>为什么要用Nosql</h5><p>用户的个人信息，社交网络，地理位置。用户自己产生的数据，用户日志等等爆发式增长！ </p>
+		<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2><a id="more"></a>
+
+<h3 id="Nosql概述"><a href="#Nosql概述" class="headerlink" title="Nosql概述"></a>Nosql概述</h3><h5 id="为什么要用Nosql"><a href="#为什么要用Nosql" class="headerlink" title="为什么要用Nosql"></a>为什么要用Nosql</h5><p>用户的个人信息，社交网络，地理位置。用户自己产生的数据，用户日志等等爆发式增长！ </p>
 <p>这时候我们就需要使用NoSQL数据库的，Nosql 可以很好的处理以上的情况！ </p>
 <h5 id="什么是NoSQL"><a href="#什么是NoSQL" class="headerlink" title="什么是NoSQL"></a>什么是NoSQL</h5><p>NoSQL = Not Only SQL （不仅仅是SQL） </p>
 <p>关系型数据库：表格 ，行 ，列 </p>
@@ -865,15 +867,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">spring-mybatis</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -885,15 +883,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">spring-mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">ssm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">aop</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">aop</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
