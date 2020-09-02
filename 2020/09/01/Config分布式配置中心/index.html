@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Config分布式配置中心 | 洛枳</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Config分布式配置中心微服务意味着要将单体应用中的业务拆分成一个个子服务 ，每个服务的粒度相对较小，因此系统中会出现大量的服务。由于每个服务都需要必要的配置信息才能运行，所以一集中式的、动态的配置管理设施是必不可少的。SpringCloud提供了ConfigServer来解决这个问题，我们每一个微服务自 己带着一个application.yml，上百个配置文件的管理….. 是什么SpringC">
+  <meta name="description" content="Config分布式配置中心">
 <meta name="keywords" content="Config">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Config分布式配置中心">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;09&#x2F;01&#x2F;Config%E5%88%86%E5%B8%83%E5%BC%8F%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83&#x2F;index.html">
 <meta property="og:site_name" content="洛枳">
-<meta property="og:description" content="Config分布式配置中心微服务意味着要将单体应用中的业务拆分成一个个子服务 ，每个服务的粒度相对较小，因此系统中会出现大量的服务。由于每个服务都需要必要的配置信息才能运行，所以一集中式的、动态的配置管理设施是必不可少的。SpringCloud提供了ConfigServer来解决这个问题，我们每一个微服务自 己带着一个application.yml，上百个配置文件的管理….. 是什么SpringC">
+<meta property="og:description" content="Config分布式配置中心">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-01T07:01:39.632Z">
+<meta property="og:updated_time" content="2020-09-02T06:57:22.077Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="洛枳" type="application/atom+xml">
@@ -224,7 +224,8 @@
       
 
 	
-		<h2 id="Config分布式配置中心"><a href="#Config分布式配置中心" class="headerlink" title="Config分布式配置中心"></a>Config分布式配置中心</h2><p>微服务意味着要将单体应用中的业务拆分成一个个子服务 ，每个服务的粒度相对较小，因此系统中会出现大量的服务。由于每个服务都需要必要的配置信息才能运行，所以一集中式的、动态的配置管理设施是必不可少的。<br>SpringCloud提供了ConfigServer来解决这个问题，我们每一个微服务自 己带着一个application.yml，上百个配置文件的管理…..</p>
+		<h2 id="Config分布式配置中心"><a href="#Config分布式配置中心" class="headerlink" title="Config分布式配置中心"></a>Config分布式配置中心</h2><a id="more"></a>
+<p>微服务意味着要将单体应用中的业务拆分成一个个子服务 ，每个服务的粒度相对较小，因此系统中会出现大量的服务。由于每个服务都需要必要的配置信息才能运行，所以一集中式的、动态的配置管理设施是必不可少的。<br>SpringCloud提供了ConfigServer来解决这个问题，我们每一个微服务自 己带着一个application.yml，上百个配置文件的管理…..</p>
 <p>是什么<br>SpringCloud Config为微服务架构中的微服务提供集中化的外部配置支持,配置服务器为各个不同微服务应用的所有环境提供了一个中心化的外部配置。<br>怎么玩<br>SpringCloud Config分为服务端和客户端两部分。<br>服务端也称为分布式配置中心，它是一个独立的微服务应用，来连接配置服务器并为客户端提供获取配置信息，加密/解密信息等访问.</p>
 <p>接口<br>客户端则是通过指定的配置中心来管理应用资源，以及与业务相关的配置内容，并在启动的时候从配置中心获取和加载配置信息配置服务器默认采用git来存储配置信息，这样就有助于对环境配置进行版本管理,并且可以通过git客户端工具来方便的管理和访问配置内容</p>
 <p>能干嘛</p>
@@ -392,8 +393,8 @@
     </a>
   
   
-    <a href="/2020/09/01/Hystrix%E6%96%AD%E8%B7%AF%E5%99%A8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hystrix断路器</div>
+    <a href="/2020/09/01/Gateway%E6%96%B0%E4%B8%80%E4%BB%A3%E7%BD%91%E5%85%B3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Gateway新一代网关</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -519,15 +520,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">Hystrix</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">Gateway</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -535,7 +528,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">Hystrix</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">Ribbon</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">OpenFeign</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">SpringCloud Sleuth</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -547,23 +556,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">SpringCloud Sleuth</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">Zookeeper</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">dubbo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">springboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">OpenFeign</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">mybatis-plus</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -579,23 +576,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">mybatis-plus</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">spring-mybatis</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">springmvc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -603,15 +584,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">aop</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">dubbo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">springmvc</a>
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">springboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color5">spring-mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">ssm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -620,6 +617,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color3">项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" target="_blank" rel="noopener" class="js-tag color4">aop</a>
               </li>
              
               <li class="article-tag-list-item">
